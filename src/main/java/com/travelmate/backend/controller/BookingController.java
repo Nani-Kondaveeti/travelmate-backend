@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/bookings")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://travelmate-frontend-eight.vercel.app"
+})
 public class BookingController {
 
     @Autowired
@@ -23,9 +26,7 @@ public class BookingController {
 
             return bookingService.saveBooking(booking);
 
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
 
             return e.getMessage();
 
